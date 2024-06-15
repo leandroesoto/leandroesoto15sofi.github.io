@@ -713,7 +713,8 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-
+            
+            
             <div class="white-circle-icon">
               <img class="" src="./assets/img/img_circuloCanciones.svg" alt="">
             </div>
@@ -723,145 +724,13 @@
 
           <div class="modal-header">
 
-            <h5 class="modal-title">Sugerir Canción</h5>
-
-          </div>
-
-          <div class="modal-body">
-
-            <div class="formulario-content">
-
-              <form id="formSugerirCancion" action="">
-
-                <div class="form-group">
-                  <input type="text" class="form-control" id="nombreSugerencia" name='nombre' placeholder="Tu nombre">
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control" id="descripcionSugerencia" name='descripcion'
-                    placeholder="Nombre de canción y autor">
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control" id="linkSugerencia" name='link'
-                    placeholder="Si lo desea ingrese el link de YouTube, Spotify, etc.">
-                </div>
-
-
-                <input type="hidden" name="invitacion" value="">
-                <input type="hidden" name="token" value="">
-                <input type="hidden" name="lang" value="es">
-                <input type="hidden" name="country" value="ar">
-
-              </form>
-
-            </div>
-
-            <div class="msj-content d-flex flex-column justify-content-center"></div>
+            <h5 class="modal-title">Agregale musica</h5>
 
           </div>
 
           <div class="modal-footer">
-            <button type="button" id="sendSugerenciaCancion" class="boton">Sugerir canción</button>
+            <button type="button" class="boton" id="inicio-musica"><i class="fa-solid fa-play"></i></button>
           </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal vestuario-->
-  <div id="modalVestuario" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-md modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-content-2">
-
-          <picture>
-            <source type="image/webp" srcset="./assets/img/flores_Grupo04.webp">
-            <source type="image/png" srcset="./assets/img/flores_Grupo04.png">
-            <img class="adorno adorno-1" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000"
-              data-aos-once="false" src="./assets/img/flores_Grupo04.png" alt="" loading="lazy">
-          </picture>
-
-
-
-          <div class="img-top-modal d-flex justify-content-center align-items-start">
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-
-            <div class="white-circle-icon">
-              <img class="" src="./assets/img/vestuario.svg" alt="">
-            </div>
-
-
-          </div>
-
-
-
-          <div class="modal-header">
-
-            <h5 class="modal-title">Dress Code</h5>
-
-          </div>
-
-          <div class="modal-body">
-
-            <p>Contenido Dress Code</p>
-
-          </div>
-
-
-          <div class="modal-footer"></div>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal tips-->
-  <div id="modalTips" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-md modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-content-2">
-
-          <picture>
-            <source type="image/webp" srcset="./assets/img/flores_Grupo04.webp">
-            <source type="image/png" srcset="./assets/img/flores_Grupo04.png">
-            <img class="adorno adorno-1" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000"
-              data-aos-once="false" src="./assets/img/flores_Grupo04.png" alt="" loading="lazy">
-          </picture>
-
-
-          <div class="img-top-modal d-flex justify-content-center align-items-start">
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-
-            <div class="white-circle-icon">
-              <img class="" src="./assets/img/tips.svg" alt="">
-            </div>
-
-          </div>
-
-
-
-          <div class="modal-header">
-
-            <h5 class="modal-title">Tips y Notas</h5>
-
-          </div>
-
-          <div class="modal-body">
-
-            <p>Contenido Tips y Notas</p>
-
-          </div>
-
-
-          <div class="modal-footer"></div>
-
 
         </div>
       </div>
@@ -960,7 +829,6 @@
       </div>
     </div>
   </div>
-
 
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
@@ -1094,13 +962,13 @@
   <script>
     // Al cargar abro modal
     prealoaderOption.on("load", function () {
-      $('#modalMusica').modal({
+      $('#modalSugerirCancion').modal({
         backdrop: 'static'
       });
     });
 
     // Btn play music modal
-    $('body').on('click', '#play-music-modal', function (e) {
+    $('body').on('click', '#inicio-musica', function (e) {
 
       e.preventDefault();
 
@@ -1109,7 +977,7 @@
       animMusicAnimIcon.play();
       player.playVideo();
 
-      $('#modalMusica').modal('hide');
+      $('#modalSugerirCancion').modal('hide');
 
     });
   </script>
@@ -1148,8 +1016,8 @@
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       event.target.setVolume(50);
-      event.target.playVideo();
-      animMusicAnimIcon.play();
+      // event.target.playVideo();
+      // animMusicAnimIcon.play();
 
     }
 
@@ -1238,7 +1106,7 @@
 
 
   <!-- Animacion Musica -->
-  <!-- <script>
+  <script>
     let svgContainerMusica = document.querySelector('.anim-musica');
 
     let animMusica = bodymovin.loadAnimation({
@@ -1249,7 +1117,7 @@
     });
 
     animMusica.play();
-  </script> -->
+  </script>
 
 
 
